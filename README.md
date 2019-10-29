@@ -1,1 +1,1 @@
-# These are some data struture programs which are I usally do in my free time.
+# These are some data struture programmming which I usally do in my free time.
