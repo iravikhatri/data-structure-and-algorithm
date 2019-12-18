@@ -1,21 +1,21 @@
 // basic implementation of list
 
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 
 struct Node{
     int data;
     struct Node* next;
 };
 
-struct Node* head;
+struct Node* head = NULL;;
 
+struct Node* newNode();
 void printList();
-void insert(int head);
+void insertAtStart(int);
+void insertAtEnd(int);
 
 void main(){
-
-    head = NULL;
     int input = 1, number;
 
     while (input) {
@@ -26,27 +26,47 @@ void main(){
             printList();
         }
         else if(input == 2){
-            printf("Enter a number\n");
+            printf("Enter a number : ");
             scanf("%d", &number);
-            insert(number);
+            insertAtEnd(number);
         }
     }
 
 }
 
+struct Node* newNode(){
+    return (struct Node*)malloc(sizeof(struct Node));
+}
+
 void printList(){
     struct Node* temp = head;
     while(temp != NULL){
-        printf("%d ",(*temp).data);
-        temp = (*temp).next;
+        printf("%d ",temp->data);
+        temp = temp->next;
     }
-    printf("\n");
 }
 
-void insert(int value){
-    struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
-    (*temp).data = value;
-    (*temp).next = head;
+void insertAtStart(int value){
+    struct Node* temp = newNode();
+    temp->data = value;
+    temp->next = head;
     head = temp;
-    printList();
+}
+
+void insertAtEnd(int value) {
+    struct Node* temp = newNode();
+    temp->data = value;
+    temp->next = NULL;
+
+    struct Node* temp_head = head;
+
+    if(head == NULL){
+        head = temp;
+    }
+    else{
+        while(temp_head->next != NULL) {
+            temp_head = temp_head->next;
+        }
+        temp_head->next = temp;
+    }
 }
