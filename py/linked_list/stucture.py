@@ -17,17 +17,17 @@ class LinkedList:
         current = head
         element_count = 0
 
-        while current != None:
+        while current is not None:
             element_count += 1
             current = current.next
 
         return element_count
 
 
-    def print_list(self) -> Node:
+    def print_list(self):
         current = self.head
 
-        while current != None:
+        while current is not None:
             print(f"{current.value}", end=" ")
             current = current.next
 
