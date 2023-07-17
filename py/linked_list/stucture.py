@@ -28,10 +28,8 @@ class LinkedList:
         current = self.head
 
         while current is not None:
-            print(f"{current.value}", end=" ")
+            print(f"{current.value}")
             current = current.next
-
-        print("")
 
 
     def append(self, value):
