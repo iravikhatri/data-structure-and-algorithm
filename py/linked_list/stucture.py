@@ -13,8 +13,8 @@ class LinkedList:
         self.head = head
 
 
-    def count(self, head):
-        current = head
+    def count(self):
+        current = self.head
         element_count = 0
 
         while current is not None:
@@ -86,3 +86,5 @@ newlist.prepend(33)
 newlist.prepend(44)
 
 newlist.print_list()
+
+print(newlist.count())
