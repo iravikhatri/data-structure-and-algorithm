@@ -31,6 +31,8 @@ class LinkedList:
             print(f"{current.value}")
             current = current.next
 
+        return self.head
+
 
     def append(self, value):
         current = self.head
@@ -43,6 +45,8 @@ class LinkedList:
                 current = current.next
             current.next = node
 
+        return self.head
+
 
     def prepend(self, value):
         current = self.head
@@ -51,12 +55,29 @@ class LinkedList:
         self.head = node
         node.next = current
 
-
-    def insert(self, value, index):
-        pass
+        return self.head
 
 
-    def pop(self, index = 0):
+    def insert(self, value, idx):
+        current = self.head
+        node = Node(value)
+        counter = 1
+
+        if current is None:
+            self.head = node
+        else:
+            while current != None:
+                if counter == idx:
+                    node.next = current.next
+                    current.next = node
+                    break
+                counter += 1
+                current = current.next
+
+        return self.head
+
+
+    def pop(self, index=0):
         pass
 
 
@@ -69,7 +90,17 @@ class LinkedList:
 
 
     def search(self, value):
-        pass
+        current = self.head
+        counter = 0
+
+        while current != None:
+            if current.value == value:
+                return counter
+            counter += 1
+            current = current.next
+
+        return -1
+
 
 
     def merge(self, head1, head2):
@@ -79,12 +110,14 @@ class LinkedList:
 
 newlist = LinkedList()
 
-newlist.append(11)
-newlist.append(22)
-newlist.append(55)
-newlist.prepend(33)
 newlist.prepend(44)
+newlist.prepend(33)
+newlist.prepend(22)
+newlist.prepend(11)
+newlist.prepend(0)
+# newlist.insert(11, 4)
 
 newlist.print_list()
 
-print(newlist.count())
+print("search", newlist.search(222))
+print("count", newlist.count())
