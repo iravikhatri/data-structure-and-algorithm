@@ -71,6 +71,7 @@ class LinkedList:
                     node.next = current.next
                     current.next = node
                     break
+
                 counter += 1
                 current = current.next
 
@@ -85,8 +86,19 @@ class LinkedList:
         pass
 
 
-    def update(self, value, index):
-        pass
+    def update(self, value, idx):
+        current = self.head
+        counter = 0
+
+        while current != None:
+            if counter == idx:
+                current.value = value
+                break
+
+            counter += 1
+            current = current.next
+
+        return self.head
 
 
     def search(self, value):
@@ -96,6 +108,7 @@ class LinkedList:
         while current != None:
             if current.value == value:
                 return counter
+
             counter += 1
             current = current.next
 
@@ -110,11 +123,12 @@ class LinkedList:
 
 newlist = LinkedList()
 
-newlist.prepend(44)
-newlist.prepend(33)
+newlist.append(44)
+newlist.append(33)
 newlist.prepend(22)
 newlist.prepend(11)
 newlist.prepend(0)
+newlist.update(222, 5)
 # newlist.insert(11, 4)
 
 newlist.print_list()
