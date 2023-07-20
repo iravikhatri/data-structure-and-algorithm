@@ -17,7 +17,7 @@ class LinkedList:
         current = self.head
         element_count = 0
 
-        while current is not None:
+        while current != None:
             element_count += 1
             current = current.next
 
@@ -27,7 +27,7 @@ class LinkedList:
     def print_list(self):
         current = self.head
 
-        while current is not None:
+        while current != None:
             print(f"{current.value}")
             current = current.next
 
@@ -38,7 +38,7 @@ class LinkedList:
         current = self.head
         node = Node(value)
 
-        if current is None:
+        if current == None:
             self.head = node
         else:
             while current.next != None:
@@ -63,7 +63,7 @@ class LinkedList:
         node = Node(value)
         counter = 1
 
-        if current is None:
+        if current == None:
             self.head = node
         else:
             while current != None:
